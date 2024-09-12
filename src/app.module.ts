@@ -2,7 +2,10 @@ import { Module } from '@nestjs/common'
 import { AppController } from './app.controller'
 import { AppService } from './app.service'
 import { KnexModule, KnexModuleOptions } from 'nest-knexjs'
+import { ErrorsService } from './shared/filters/global-errors/errors-service.service'
 import * as dotenv from 'dotenv'
+import { GlobalErrorsFilter } from './shared/filters/global-errors/global-errors.filter'
+import { APP_FILTER } from '@nestjs/core'
 
 dotenv.config()
 
@@ -45,6 +48,10 @@ export const mysqlConfig: KnexModuleOptions = {
 @Module({
   imports: [KnexModule.forRoot(mysqlConfig)],
   controllers: [AppController],
-  providers: [AppService]
+  providers: [
+    AppService,
+    ErrorsService,
+    { provide: APP_FILTER, useClass: GlobalErrorsFilter }
+  ]
 })
 export class AppModule {}
