@@ -47,8 +47,10 @@ export class ErrorsService {
     } else {
       console.error(`new error in  ${func}:`)
       console.error(error)
-      const errMsg = message
-      return new InternalServerErrorException(errMsg)
+
+      return new InternalServerErrorException(
+        '#Erro interno. Informe o time de suporte para correção.'
+      )
     }
   }
 
