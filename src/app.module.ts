@@ -9,6 +9,7 @@ import { APP_FILTER } from '@nestjs/core'
 import { BooksModule } from './resources/books/books.module'
 import { ChaptersModule } from './resources/chapters/chapters.module';
 import { VersesModule } from './resources/verses/verses.module';
+import { VersionsModule } from './resources/versions/versions.module';
 
 dotenv.config()
 
@@ -49,7 +50,7 @@ export const mysqlConfig: KnexModuleOptions = {
 }
 
 @Module({
-  imports: [KnexModule.forRoot(mysqlConfig), BooksModule, ChaptersModule, VersesModule],
+  imports: [KnexModule.forRoot(mysqlConfig), BooksModule, ChaptersModule, VersesModule, VersionsModule],
   controllers: [AppController],
   providers: [
     AppService,
