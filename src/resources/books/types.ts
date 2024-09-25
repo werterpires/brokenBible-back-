@@ -1,3 +1,5 @@
+import { Chapter } from '../chapters/types'
+
 export type Testamento = 'Angito' | 'Novo'
 
 export interface CriarBook {
@@ -12,4 +14,6 @@ export interface AtualizarBook extends CriarBook {
   bookId: number
 }
 
-export interface Book extends AtualizarBook {}
+export interface Book extends AtualizarBook {
+  chapters?: Chapter[]
+}
