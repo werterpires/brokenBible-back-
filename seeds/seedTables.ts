@@ -87,7 +87,7 @@ export async function seed(knex: Knex): Promise<void> {
     {
       verse_id: 3,
       chapter_id: 1,
-      verse_number: 2
+      verse_number: 3
     }
   ])
 
