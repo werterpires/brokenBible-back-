@@ -8,6 +8,7 @@ import { GlobalErrorsFilter } from './shared/filters/global-errors/global-errors
 import { APP_FILTER } from '@nestjs/core'
 import { BooksModule } from './resources/books/books.module'
 import { ChaptersModule } from './resources/chapters/chapters.module';
+import { VersesModule } from './resources/verses/verses.module';
 
 dotenv.config()
 
@@ -48,7 +49,7 @@ export const mysqlConfig: KnexModuleOptions = {
 }
 
 @Module({
-  imports: [KnexModule.forRoot(mysqlConfig), BooksModule, ChaptersModule],
+  imports: [KnexModule.forRoot(mysqlConfig), BooksModule, ChaptersModule, VersesModule],
   controllers: [AppController],
   providers: [
     AppService,
