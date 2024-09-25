@@ -1,26 +1,19 @@
-import { Injectable } from '@nestjs/common';
-import { CreateVerseDto } from './dto/create-verse.dto';
-import { UpdateVerseDto } from './dto/update-verse.dto';
+import { Injectable } from '@nestjs/common'
+import { VersesRepo } from './verses.repo'
+import { Verse } from './types'
 
 @Injectable()
 export class VersesService {
-  create(createVerseDto: CreateVerseDto) {
-    return 'This action adds a new verse';
-  }
+  constructor(private readonly versesRepo: VersesRepo) {}
 
-  findAll() {
-    return `This action returns all verses`;
-  }
-
-  findOne(id: number) {
-    return `This action returns a #${id} verse`;
-  }
-
-  update(id: number, updateVerseDto: UpdateVerseDto) {
-    return `This action updates a #${id} verse`;
-  }
-
-  remove(id: number) {
-    return `This action removes a #${id} verse`;
+  async findAllVersesByChapterId(
+    chapterId: number,
+    orderBy: string
+  ): Promise<Verse[]> {
+    const verses = await this.versesRepo.findAllVersesByChapterId(
+      chapterId,
+      orderBy
+    )
+    return verses
   }
 }
