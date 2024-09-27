@@ -18,7 +18,8 @@ export class VersesRepo {
       return <Verse>{
         verseId: verse.verse_id,
         chapterId: verse.chapter_id,
-        verseNumber: verse.verse_number
+        verseNumber: verse.verse_number,
+        verseTranslation: verse.verse_translation
       }
     })
 

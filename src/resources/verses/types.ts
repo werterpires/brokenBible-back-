@@ -5,6 +5,7 @@ export interface Verse {
   verseId: number
   chapterId: number
   verseNumber: number
+  verseTranslation: string
   chapter?: Chapter
   verseOnVersions?: VerseOnVersion[]
 }

@@ -77,17 +77,21 @@ export async function seed(knex: Knex): Promise<void> {
     {
       verse_id: 1,
       chapter_id: 1,
-      verse_number: 1
+      verse_number: 1,
+      verse_translation: 'No princípio criou Deus os céus e a terra.'
     },
     {
       verse_id: 2,
       chapter_id: 1,
-      verse_number: 2
+      verse_number: 2,
+      verse_translation:
+        'A terra, porém, estava sem forma e deserta; havia trevas sobre a face do abismo, e o ruach de Deus pairava sobre as águas.'
     },
     {
       verse_id: 3,
       chapter_id: 1,
-      verse_number: 3
+      verse_number: 3,
+      verse_translation: 'E disse Deus: Haja luz; e houve luz.'
     }
   ])
 
@@ -117,6 +121,24 @@ export async function seed(knex: Knex): Promise<void> {
       verse_id: 1,
       version_id: 3,
       verse_text: 'No princípio Deus criou os céus e a terra.'
+    }
+  ])
+
+  await knex('propositions').insert([
+    {
+      proposition_id: 1,
+      verse_id: 1,
+      proposition: 'Houve um princípio.'
+    },
+    {
+      proposition_id: 2,
+      verse_id: 1,
+      proposition: 'Deus estava no princípio.'
+    },
+    {
+      proposition_id: 3,
+      verse_id: 1,
+      proposition: 'A terra foi criada.'
     }
   ])
 }
