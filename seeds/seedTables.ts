@@ -1,6 +1,9 @@
 import { Knex } from 'knex'
 
 export async function seed(knex: Knex): Promise<void> {
+  await knex('themes_on_propositions').del()
+  await knex('themes').del()
+  await knex('propositions').del()
   await knex('verses_on_versions').del()
   await knex('verses').del()
   await knex('versions').del()
@@ -139,6 +142,55 @@ export async function seed(knex: Knex): Promise<void> {
       proposition_id: 3,
       verse_id: 1,
       proposition: 'A terra foi criada.'
+    }
+  ])
+
+  await knex('themes').insert([
+    {
+      theme_id: 1,
+      theme_text: 'Princípio',
+      theme_description: 'O início de algo, aquilo por onde algo começou.'
+    },
+    {
+      theme_id: 2,
+      theme_text: 'Deus',
+      theme_description:
+        'Um tipo de ser, com poderes capacidade acima dos poderes humanos.'
+    },
+    {
+      theme_id: 3,
+      theme_text: 'Terra',
+      theme_description:
+        'O local onde o ser humano habita, seja o planeta, seja a parte de baixo (em oposição ao sol), seja a parte seca (em oposição ao mar).'
+    },
+    {
+      theme_id: 4,
+      theme_text: 'Criação',
+      theme_description:
+        'Ato de trazer à existência algo ainda não existente ainda.'
+    }
+  ])
+
+  await knex('themes_on_propositions').insert([
+    {
+      theme_id: 1,
+      proposition_id: 1
+    },
+    {
+      theme_id: 2,
+      proposition_id: 2
+    },
+    {
+      theme_id: 3,
+      proposition_id: 3
+    },
+    {
+      theme_id: 4,
+      proposition_id: 3
+    },
+    {
+      theme_id: 1,
+      proposition_id: 2
     }
   ])
 }
