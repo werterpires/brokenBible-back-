@@ -3,6 +3,7 @@ import { Knex } from 'knex'
 export async function seed(knex: Knex): Promise<void> {
   await knex('themes_on_propositions').del()
   await knex('themes').del()
+  await knex('propositions_on_verses').del()
   await knex('propositions').del()
   await knex('verses_on_versions').del()
   await knex('verses').del()
@@ -130,18 +131,30 @@ export async function seed(knex: Knex): Promise<void> {
   await knex('propositions').insert([
     {
       proposition_id: 1,
-      verse_id: 1,
-      proposition: 'Houve um princípio.'
+      proposition_text: 'Houve um princípio.'
     },
     {
       proposition_id: 2,
-      verse_id: 1,
-      proposition: 'Deus estava no princípio.'
+      proposition_text: 'Deus estava no princípio.'
     },
     {
       proposition_id: 3,
-      verse_id: 1,
-      proposition: 'A terra foi criada.'
+      proposition_text: 'A terra foi criada.'
+    }
+  ])
+
+  await knex('propositions_on_verses').insert([
+    {
+      proposition_id: 1,
+      verse_id: 1
+    },
+    {
+      proposition_id: 2,
+      verse_id: 1
+    },
+    {
+      proposition_id: 3,
+      verse_id: 1
     }
   ])
 
