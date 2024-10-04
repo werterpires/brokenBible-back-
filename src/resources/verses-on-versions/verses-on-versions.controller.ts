@@ -8,7 +8,7 @@ export class VersesOnVersionsController {
   ) {}
 
   @Get('verse/:verseId/:orderBy')
-  vindAllVersesOnVersesByVerseId(
+  async vindAllVersesOnVersesByVerseId(
     @Param('verseId') verseId: number,
     @Param('orderBy') orderBy: string
   ) {
