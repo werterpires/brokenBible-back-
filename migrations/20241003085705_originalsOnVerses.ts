@@ -12,7 +12,7 @@ export async function up(knex: Knex): Promise<void> {
       .unsigned()
       .references('verse_id')
       .inTable('verses')
-    table.integer('work_position').notNullable()
+    table.integer('word_position').notNullable()
     table.string('apparatus', 1500).notNullable()
   })
 }

@@ -1,6 +1,16 @@
 import { Knex } from 'knex'
 
 export async function seed(knex: Knex): Promise<void> {
+  await knex('originals_on_verses').del()
+  await knex('morphological_analysis_on_originals').del()
+  await knex('values_on_morphological_analysis').del()
+  await knex('originals').del()
+  await knex('morphological_analysis').del()
+  await knex('roots_on_semantic_groups').del()
+  await knex('possible_properties_values').del()
+  await knex('roots').del()
+  await knex('semantic_groups').del()
+  await knex('words_properties').del()
   await knex('themes_on_propositions').del()
   await knex('themes').del()
   await knex('propositions_on_verses').del()
@@ -204,6 +214,185 @@ export async function seed(knex: Knex): Promise<void> {
     {
       theme_id: 1,
       proposition_id: 2
+    }
+  ])
+
+  await knex('words_properties').insert([
+    {
+      words_property_id: 1,
+      words_property_name: 'Gênero'
+    },
+    {
+      words_property_id: 2,
+      words_property_name: 'Classe'
+    },
+    {
+      words_property_id: 3,
+      words_property_name: 'Pessoa'
+    }
+  ])
+
+  await knex('semantic_groups').insert([
+    {
+      semantic_group_id: 1,
+      sem_group_name: 'Cabeça, princípio, Líder',
+      sem_group_description:
+        'Relacionado a estar acima, ou ser o primeiro, ou estar à frente',
+      root: "R'SH"
+    },
+    {
+      semantic_group_id: 2,
+      sem_group_name: 'Criar',
+      sem_group_description: 'Relacionado à criação divina',
+      root: "BR'"
+    },
+    {
+      semantic_group_id: 3,
+      sem_group_name: 'Deus',
+      sem_group_description: 'Relacionado à figura ou ao tipo de ser: deus.',
+      root: '`L'
+    }
+  ])
+
+  await knex('roots').insert([
+    {
+      root_id: 1,
+      root_word: 'RESHIYTH',
+      root_meaning: 'Princípio; tempo antigo; começo de tudo; ponto de partida.'
+    },
+    {
+      root_id: 2,
+      root_word: "BARA'",
+      root_meaning: 'Criar, aplicado somente a Deus.'
+    },
+    {
+      root_id: 3,
+      root_word: '`ELOHIM',
+      root_meaning: 'Deuses'
+    }
+  ])
+
+  await knex('possible_properties_values').insert([
+    {
+      possible_value_id: 1,
+      words_property_id: 1,
+      value: 'Masculino'
+    },
+    {
+      possible_value_id: 2,
+      words_property_id: 1,
+      value: 'Feminino'
+    },
+    {
+      possible_value_id: 3,
+      words_property_id: 3,
+      value: 'Terceira'
+    }
+  ])
+
+  await knex('roots_on_semantic_groups').insert([
+    {
+      semantic_group_id: 1,
+      root_id: 1
+    },
+    {
+      semantic_group_id: 2,
+      root_id: 2
+    },
+    {
+      semantic_group_id: 3,
+      root_id: 3
+    }
+  ])
+
+  await knex('morphological_analysis').insert([
+    {
+      morph_analysis_id: 1,
+      analysis_name: 'Substantivo feminino singular'
+    },
+    {
+      morph_analysis_id: 2,
+      analysis_name: 'Verbo kal completo terceira pessoa masculino singular'
+    },
+    {
+      morph_analysis_id: 3,
+      analysis_name: 'Substantivo feminino plural'
+    }
+  ])
+
+  await knex('originals').insert([
+    {
+      original_id: 1,
+      original_name: 'Reshiyth',
+      original_meaning:
+        'Princípio; tempo antigo; começo de tudo; ponto de partida.',
+      root_id: 1
+    },
+    {
+      original_id: 2,
+      original_name: "Bara'",
+      original_meaning: 'Criar, aplicado somente a Deus.',
+      root_id: 2
+    },
+    {
+      original_id: 3,
+      original_name: 'Elohim',
+      original_meaning: 'Deuses',
+      root_id: 3
+    }
+  ])
+
+  await knex('values_on_morphological_analysis').insert([
+    {
+      morph_analysis_id: 1,
+      possible_value_id: 3
+    },
+    {
+      morph_analysis_id: 3,
+      possible_value_id: 2
+    },
+    {
+      morph_analysis_id: 2,
+      possible_value_id: 3
+    }
+  ])
+
+  await knex('morphological_analysis_on_originals').insert([
+    {
+      original_id: 1,
+      morph_analysis_id: 1
+    },
+    {
+      original_id: 2,
+      morph_analysis_id: 2
+    },
+    {
+      original_id: 3,
+      morph_analysis_id: 3
+    }
+  ])
+
+  await knex('originals_on_verses').insert([
+    {
+      original_id: 1,
+      verse_id: 1,
+      word_position: 1,
+      apparatus:
+        'Será que não pode significar: "A princípio", "para começo de conversa?"'
+    },
+    {
+      original_id: 2,
+      verse_id: 1,
+      word_position: 2,
+      apparatus:
+        'Dizem que essa palavra é usada apenas para Deus, mas não é verdade.'
+    },
+    {
+      original_id: 3,
+      verse_id: 1,
+      word_position: 1,
+      apparatus:
+        'E se o correto for traduzir essa palavra como um coletivo (divindade, talvez).'
     }
   ])
 }
