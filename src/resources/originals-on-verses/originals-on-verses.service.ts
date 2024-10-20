@@ -1,26 +1,18 @@
-import { Injectable } from '@nestjs/common';
-import { CreateOriginalsOnVerseDto } from './dto/create-originals-on-verse.dto';
-import { UpdateOriginalsOnVerseDto } from './dto/update-originals-on-verse.dto';
+import { Injectable } from '@nestjs/common'
+import { OriginalsOnVersesRepo } from './originals-on-verses.repo'
+import { OriginalOnVerse } from './types'
 
 @Injectable()
 export class OriginalsOnVersesService {
-  create(createOriginalsOnVerseDto: CreateOriginalsOnVerseDto) {
-    return 'This action adds a new originalsOnVerse';
-  }
+  constructor(private readonly originalsOnVersesRepo: OriginalsOnVersesRepo) {}
 
-  findAll() {
-    return `This action returns all originalsOnVerses`;
-  }
-
-  findOne(id: number) {
-    return `This action returns a #${id} originalsOnVerse`;
-  }
-
-  update(id: number, updateOriginalsOnVerseDto: UpdateOriginalsOnVerseDto) {
-    return `This action updates a #${id} originalsOnVerse`;
-  }
-
-  remove(id: number) {
-    return `This action removes a #${id} originalsOnVerse`;
+  async findAllOriginalsOnVerseByVerseId(
+    verseId: number,
+    orderBy: string
+  ): Promise<OriginalOnVerse[]> {
+    return this.originalsOnVersesRepo.findAllOriginalsOnVerseByVerseId(
+      verseId,
+      orderBy
+    )
   }
 }
