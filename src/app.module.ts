@@ -20,6 +20,7 @@ import { OriginalsModule } from './resources/originals/originals.module';
 import { RootsModule } from './resources/roots/roots.module';
 import { MorphologicalAnalysisModule } from './resources/morphological-analysis/morphological-analysis.module';
 import { MorphologicalAnalysisOnOriginalsModule } from './resources/morphological-analysis-on-originals/morphological-analysis-on-originals.module';
+import { WordsPropertiesModule } from './resources/words-properties/words-properties.module';
 
 dotenv.config()
 
@@ -60,7 +61,7 @@ export const mysqlConfig: KnexModuleOptions = {
 }
 
 @Module({
-  imports: [KnexModule.forRoot(mysqlConfig), BooksModule, ChaptersModule, VersesModule, VersionsModule, VersesOnVersionsModule, PropositionsModule, ThemesModule, ThemesOnPropositionsModule, PropositionsOnVersesModule, OriginalsOnVersesModule, OriginalsModule, RootsModule, MorphologicalAnalysisModule, MorphologicalAnalysisOnOriginalsModule],
+  imports: [KnexModule.forRoot(mysqlConfig), BooksModule, ChaptersModule, VersesModule, VersionsModule, VersesOnVersionsModule, PropositionsModule, ThemesModule, ThemesOnPropositionsModule, PropositionsOnVersesModule, OriginalsOnVersesModule, OriginalsModule, RootsModule, MorphologicalAnalysisModule, MorphologicalAnalysisOnOriginalsModule, WordsPropertiesModule],
   controllers: [AppController],
   providers: [
     AppService,
