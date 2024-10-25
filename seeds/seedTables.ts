@@ -224,11 +224,15 @@ export async function seed(knex: Knex): Promise<void> {
     },
     {
       words_property_id: 2,
-      words_property_name: 'Classe'
+      words_property_name: 'Classe gramatical'
     },
     {
       words_property_id: 3,
       words_property_name: 'Pessoa'
+    },
+    {
+      words_property_id: 4,
+      words_property_name: 'Número'
     }
   ])
 
@@ -276,17 +280,35 @@ export async function seed(knex: Knex): Promise<void> {
     {
       possible_value_id: 1,
       words_property_id: 1,
-      value: 'Masculino'
+      value: 'Masculino',
+      implication:
+        'É um conceito entendido como do gênero masculino no original'
     },
     {
       possible_value_id: 2,
       words_property_id: 1,
-      value: 'Feminino'
+      value: 'Feminino',
+      implication: 'É um conceito entendido como do gênero feminino no original'
     },
     {
       possible_value_id: 3,
       words_property_id: 3,
-      value: 'Terceira'
+      value: 'Terceira',
+      implication:
+        'Refere-se, primariarmente, não a quem fala nem a com quem se fala, mas ao terceiro'
+    },
+    {
+      possible_value_id: 4,
+      words_property_id: 2,
+      value: 'Substantivo',
+      implication:
+        'É o nome de um ser, de um conceito, de uma ação, ou de uma coisa'
+    },
+    {
+      possible_value_id: 5,
+      words_property_id: 4,
+      value: 'Singular',
+      implication: 'Refere-se a apenas um ser'
     }
   ])
 
@@ -345,7 +367,7 @@ export async function seed(knex: Knex): Promise<void> {
   await knex('values_on_morphological_analysis').insert([
     {
       morph_analysis_id: 1,
-      possible_value_id: 3
+      possible_value_id: 2
     },
     {
       morph_analysis_id: 3,
@@ -354,6 +376,14 @@ export async function seed(knex: Knex): Promise<void> {
     {
       morph_analysis_id: 2,
       possible_value_id: 3
+    },
+    {
+      morph_analysis_id: 1,
+      possible_value_id: 4
+    },
+    {
+      morph_analysis_id: 1,
+      possible_value_id: 5
     }
   ])
 

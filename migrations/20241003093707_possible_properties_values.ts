@@ -5,6 +5,7 @@ export async function up(knex: Knex): Promise<void> {
     'possible_properties_values',
     function (table) {
       table.increments('possible_value_id').primary()
+      table.string('implication').notNullable()
       table
         .integer('words_property_id')
         .unsigned()
