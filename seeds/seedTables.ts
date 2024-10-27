@@ -6,10 +6,10 @@ export async function seed(knex: Knex): Promise<void> {
   await knex('values_on_morphological_analysis').del()
   await knex('originals').del()
   await knex('morphological_analysis').del()
-  await knex('roots_on_semantic_groups').del()
+  await knex('roots_on_etymological_groups').del()
   await knex('possible_properties_values').del()
   await knex('roots').del()
-  await knex('semantic_groups').del()
+  await knex('etymological_groups').del()
   await knex('words_properties').del()
   await knex('themes_on_propositions').del()
   await knex('themes').del()
@@ -236,25 +236,25 @@ export async function seed(knex: Knex): Promise<void> {
     }
   ])
 
-  await knex('semantic_groups').insert([
+  await knex('etymological_groups').insert([
     {
-      semantic_group_id: 1,
-      sem_group_name: 'Cabeça, princípio, Líder',
-      sem_group_description:
+      etym_group_id: 1,
+      etym_group_name: 'Cabeça, princípio, Líder',
+      etym_group_description:
         'Relacionado a estar acima, ou ser o primeiro, ou estar à frente',
-      root: "R'SH"
+      group_root: "R'SH"
     },
     {
-      semantic_group_id: 2,
-      sem_group_name: 'Criar',
-      sem_group_description: 'Relacionado à criação divina',
-      root: "BR'"
+      etym_group_id: 2,
+      etym_group_name: 'Criar',
+      etym_group_description: 'Relacionado à criação divina',
+      group_root: "BR'"
     },
     {
-      semantic_group_id: 3,
-      sem_group_name: 'Deus',
-      sem_group_description: 'Relacionado à figura ou ao tipo de ser: deus.',
-      root: '`L'
+      etym_group_id: 3,
+      etym_group_name: 'Deus',
+      etym_group_description: 'Relacionado à figura ou ao tipo de ser: deus.',
+      group_root: '`L'
     }
   ])
 
@@ -312,17 +312,17 @@ export async function seed(knex: Knex): Promise<void> {
     }
   ])
 
-  await knex('roots_on_semantic_groups').insert([
+  await knex('roots_on_etymological_groups').insert([
     {
-      semantic_group_id: 1,
+      etym_group_id: 1,
       root_id: 1
     },
     {
-      semantic_group_id: 2,
+      etym_group_id: 2,
       root_id: 2
     },
     {
-      semantic_group_id: 3,
+      etym_group_id: 3,
       root_id: 3
     }
   ])
