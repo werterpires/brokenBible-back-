@@ -24,6 +24,7 @@ import { WordsPropertiesModule } from './resources/words-properties/words-proper
 import { PossiblePropertiesValuesModule } from './resources/possible-properties-values/possible-properties-values.module';
 import { ValuesOnMorphologicalAnalysisModule } from './resources/values-on-morphological-analysis/values-on-morphological-analysis.module';
 import { EtymologicalGroupsModule } from './resources/etymological-groups/etymological-groups.module';
+import { RootsOnEtymologicalGroupsModule } from './resources/roots-on-etymological-groups/roots-on-etymological-groups.module';
 
 dotenv.config()
 
@@ -64,7 +65,7 @@ export const mysqlConfig: KnexModuleOptions = {
 }
 
 @Module({
-  imports: [KnexModule.forRoot(mysqlConfig), BooksModule, ChaptersModule, VersesModule, VersionsModule, VersesOnVersionsModule, PropositionsModule, ThemesModule, ThemesOnPropositionsModule, PropositionsOnVersesModule, OriginalsOnVersesModule, OriginalsModule, RootsModule, MorphologicalAnalysisModule, MorphologicalAnalysisOnOriginalsModule, WordsPropertiesModule, PossiblePropertiesValuesModule, ValuesOnMorphologicalAnalysisModule, EtymologicalGroupsModule],
+  imports: [KnexModule.forRoot(mysqlConfig), BooksModule, ChaptersModule, VersesModule, VersionsModule, VersesOnVersionsModule, PropositionsModule, ThemesModule, ThemesOnPropositionsModule, PropositionsOnVersesModule, OriginalsOnVersesModule, OriginalsModule, RootsModule, MorphologicalAnalysisModule, MorphologicalAnalysisOnOriginalsModule, WordsPropertiesModule, PossiblePropertiesValuesModule, ValuesOnMorphologicalAnalysisModule, EtymologicalGroupsModule, RootsOnEtymologicalGroupsModule],
   controllers: [AppController],
   providers: [
     AppService,
