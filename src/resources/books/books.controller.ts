@@ -41,7 +41,7 @@ export class BooksController {
 
   @Get(':idBook')
   async findBookById(@Param('idBook') bookId: string): Promise<Book> {
-    return await this.booksService.obterBookPorId(+bookId)
+    return await this.booksService.findBookPorId(+bookId)
   }
 
   @Put()

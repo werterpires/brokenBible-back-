@@ -40,7 +40,7 @@ export class BooksService {
     return books
   }
 
-  async obterBookPorId(idBook: number): Promise<Book> {
+  async findBookPorId(idBook: number): Promise<Book> {
     const book = await this.booksRepo.findBookById(idBook)
 
     return book

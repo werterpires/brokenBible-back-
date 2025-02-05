@@ -3,7 +3,7 @@ import { Injectable, NotFoundException } from '@nestjs/common'
 import { InjectConnection } from 'nest-knexjs'
 import {
   AtualizarBook as UpdateBook,
-  CriarBook as createBook,
+  createBook as createBook,
   Book
 } from './types'
 import { Paginator } from 'src/shared/types/repo.types'
@@ -21,7 +21,7 @@ export class BooksRepo {
       bookPosition
     } = bookData
 
-    const bookId = await this.knex('books').insert({
+    const [bookId] = await this.knex('books').insert({
       book_abbr: bookAbbr,
       book_complete_name: bookCompleteName,
       book_reduced_name: bookReducedName,
