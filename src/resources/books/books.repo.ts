@@ -94,6 +94,6 @@ export class BooksRepo {
   }
 
   async deleteBook(bookId: number): Promise<void> {
-    await this.knex('books').delete().where('id_book', bookId)
+    await this.knex('books').delete().where('book_id', bookId)
   }
 }
