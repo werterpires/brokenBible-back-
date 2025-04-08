@@ -8,8 +8,6 @@ import {
 import { ErrorsService } from './errors-service.service'
 import { Request, Response } from 'express'
 
-import { timestamp } from 'rxjs'
-
 @Catch()
 export class GlobalErrorsFilter<T> implements ExceptionFilter {
   constructor(private readonly errorsService: ErrorsService) {}
@@ -38,7 +36,7 @@ export class GlobalErrorsFilter<T> implements ExceptionFilter {
 
     response.status(status).json({
       statusCode: status,
-      timestamp: timestamp(),
+      timestamp: new Date().toISOString(),
       path: request.url,
       error: errorResponse || 'internal server error bonitão'
     })

@@ -20,11 +20,11 @@ export class VersionsRepo {
   async findAllVersions(orderBy: string): Promise<Version[]> {
     const versionsConsult = await this.knex('versions').orderBy(orderBy)
 
-    const versions: Version[] = versionsConsult.map((verse) => {
+    const versions: Version[] = versionsConsult.map((version) => {
       return <Version>{
-        versionId: verse.verse_id,
-        versionAbbr: verse.version_abbr,
-        versionName: verse.version_name
+        versionId: version.version_id,
+        versionAbbr: version.version_abbr,
+        versionName: version.version_name
       }
     })
 

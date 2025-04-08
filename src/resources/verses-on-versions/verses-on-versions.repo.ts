@@ -1,13 +1,26 @@
 import { Injectable } from '@nestjs/common'
 import { InjectConnection } from 'nest-knexjs'
-import { VerseOnVersion } from './types'
+import { CreateVersesOnVersion, VerseOnVersion } from './types'
 import { Version } from '../versions/types'
 
 @Injectable()
 export class VersesOnVersionsRepo {
   constructor(@InjectConnection() private readonly knex) {}
 
-  async findAllVersesOnVersionsByVerseId(
+  async createVerseOnVersion(
+    verseOnVersionData: CreateVersesOnVersion
+  ): Promise<number> {
+    const { verseId, versionId, verseText } = verseOnVersionData
+    const [verseOnVersionId] = await this.knex('verses_on_versions').insert({
+      verse_id: verseId,
+      version_id: versionId,
+      verse_text: verseText
+    })
+
+    return verseOnVersionId
+  }
+
+  async findAllVerseOnVersionsByVerseId(
     verseId: number,
     orderBy: string
   ): Promise<VerseOnVersion[]> {
@@ -38,5 +51,21 @@ export class VersesOnVersionsRepo {
     )
 
     return verseOnVersions
+  }
+
+  async findVerseOnVersionById(
+    verseOnVersionId: number
+  ): Promise<VerseOnVersion> {
+    const verseOnVersionConsult = await this.knex('verses_on_versions')
+      .first('*')
+      .where('verse_on_version_id', verseOnVersionId)
+
+    const verseOnVersion: VerseOnVersion = {
+      verseOnVersionId: verseOnVersionConsult.verse_on_version_id,
+      verseId: verseOnVersionConsult.verse_id,
+      versionId: verseOnVersionConsult.version_id,
+      verseText: verseOnVersionConsult.verse_text
+    }
+    return verseOnVersion
   }
 }

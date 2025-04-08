@@ -1,5 +1,6 @@
-import { Controller, Get, Param } from '@nestjs/common'
+import { Body, Controller, Get, Param, Post } from '@nestjs/common'
 import { VersesOnVersionsService } from './verses-on-versions.service'
+import { CreateVersesOnVersionDto } from './dto/create-verses-on-version.dto'
 
 @Controller('verses-on-versions')
 export class VersesOnVersionsController {
@@ -15,6 +16,15 @@ export class VersesOnVersionsController {
     return this.versesOnVersionsService.findAllVersesOnVersionsByVerseId(
       +verseId,
       orderBy
+    )
+  }
+
+  @Post()
+  async createVerseOnVersion(
+    @Body() verseOnVersionDto: CreateVersesOnVersionDto
+  ) {
+    return await this.versesOnVersionsService.createVerseOnVersion(
+      verseOnVersionDto
     )
   }
 }
