@@ -1,8 +1,11 @@
 import { Verse } from '../verses/types'
 
-export interface Proposition {
-  PropositionId: number
-  verseId: number
+export interface CreateProposition {
+  versesId: number[]
   propositionText: string
-  verse?: Verse
+}
+
+export interface Proposition extends CreateProposition {
+  propositionId: number
+  verses?: Verse[]
 }

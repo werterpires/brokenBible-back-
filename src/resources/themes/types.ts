@@ -3,3 +3,8 @@ export interface Theme {
   themeText: string
   themeDescription: string
 }
+
+export interface CreateTheme {
+  themeText: string
+  themeDescription: string
+}

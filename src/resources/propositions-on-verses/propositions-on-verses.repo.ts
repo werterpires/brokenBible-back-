@@ -24,8 +24,8 @@ export class PropositionsOnVersesRepo {
       propositionsOnVerseConsult.map((propositionOnVerse) => {
         const proposition: Proposition = {
           propositionText: propositionOnVerse.proposition_text,
-          PropositionId: propositionOnVerse.proposition_id,
-          verseId: propositionOnVerse.verse_id
+          propositionId: propositionOnVerse.proposition_id,
+          versesId: [propositionOnVerse.verse_id]
         }
         return <PropositionOnVerse>{
           verseId: propositionOnVerse.verse_id,
