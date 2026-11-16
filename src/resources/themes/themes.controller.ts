@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Post } from '@nestjs/common'
+import { Body, Controller, Delete, Get, Param, Post } from '@nestjs/common'
 import { ThemesService } from './themes.service'
 import { CreateThemeDto } from './dto/create-theme.dto'
 
@@ -14,5 +14,10 @@ export class ThemesController {
   @Post()
   async createTheme(@Body() createThemeDto: CreateThemeDto) {
     return await this.themesService.createTheme(createThemeDto)
+  }
+
+  @Delete(':themeId')
+  async deleteTheme(@Param('themeId') themeId: string) {
+    return await this.themesService.deleteTheme(+themeId)
   }
 }

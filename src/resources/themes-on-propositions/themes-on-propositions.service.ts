@@ -8,6 +8,12 @@ export class ThemesOnPropositionsService {
     private readonly themesOnPropositionsRepo: ThemesOnPropositionsRepo
   ) {}
 
+  async createThemeOnProposition(CreateThemesOnPropositionDto) {
+    return this.themesOnPropositionsRepo.createThemesOnProposition(
+      CreateThemesOnPropositionDto
+    )
+  }
+
   async findAllThemesOnPropositionByPropositionId(
     propositionId: number,
     orderBy: string

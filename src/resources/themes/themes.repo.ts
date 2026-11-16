@@ -7,7 +7,9 @@ export class ThemesRepo {
   constructor(@InjectConnection() private readonly knex) {}
 
   async getAllThemes() {
-    const themesConsult = await this.knex('themes').select('*')
+    const themesConsult = await this.knex('themes')
+      .select('*')
+      .orderBy('theme_text', 'asc')
     const theme: Theme[] = themesConsult.map((theme) => {
       return {
         themeDescription: theme.theme_description,
@@ -41,5 +43,9 @@ export class ThemesRepo {
     }
 
     return theme
+  }
+
+  async deleteThmeById(themeId: number) {
+    await this.knex('themes').where('theme_id', themeId).delete()
   }
 }

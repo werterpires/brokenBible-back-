@@ -1,11 +1,22 @@
 import { Injectable } from '@nestjs/common'
 import { InjectConnection } from 'nest-knexjs'
-import { ThemeOnProposition } from './types'
+import { CreateThemesOnProposition, ThemeOnProposition } from './types'
 import { Theme } from '../themes/types'
 
 @Injectable()
 export class ThemesOnPropositionsRepo {
   constructor(@InjectConnection() private readonly knex) {}
+
+  async createThemesOnProposition(
+    createThemesOnPropositionData: CreateThemesOnProposition
+  ) {
+    const { themeId, PropositionId } = createThemesOnPropositionData
+
+    await this.knex('themes_on_propositions').insert({
+      theme_id: themeId,
+      proposition_id: PropositionId
+    })
+  }
 
   async findAllThemesOnPropositionByPropositionId(
     propositionId: number,

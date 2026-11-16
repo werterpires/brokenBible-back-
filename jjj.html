@@ -1,0 +1,496 @@
+<html lang="en"><head>
+  <script type="module" src="/@vite/client"></script>
+
+  <meta charset="utf-8">
+  <title>BrokenBibleFront</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="stylesheet" href="styles.css"><style ng-style-reused="">
+
+.menu[_ngcontent-ng-c1500617038] {
+  padding: 10px;
+  display: flex;
+}
+.menu-buttons[_ngcontent-ng-c1500617038] {
+  display: flex;
+  gap: 10px;
+  list-style: none;
+}
+.menu-button[_ngcontent-ng-c1500617038] {
+  display: inline-block;
+  margin-right: 10px;
+  padding: 5px 10px;
+  background-color: var(--secondary-normal);
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease-in-out;
+  cursor: pointer;
+  font-size: 14px;
+  border: none;
+  outline: none;
+}
+.menu-button[_ngcontent-ng-c1500617038]:hover {
+  background-color: var(--secondary-hover);
+}
+.menu-text[_ngcontent-ng-c1500617038] {
+  text-decoration: none;
+  color: var(--text-caption);
+}
+/*# sourceMappingURL=base.component.css.map */</style><style ng-style-reused="">
+
+.alerts-container[_ngcontent-ng-c1885858377] {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.alert-container[_ngcontent-ng-c1885858377] {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  z-index: 9999;
+  transition: all 0.3s ease-in-out;
+  border-radius: 5px;
+}
+.close-button[_ngcontent-ng-c1885858377] {
+  position: absolute;
+  top: -2px;
+  right: 2px;
+  background-color: var(--dark);
+  color: var(--text-caption);
+  border: none;
+  cursor: pointer;
+  border-radius: 15%;
+  padding: 5px;
+  font-size: 9px;
+}
+.error[_ngcontent-ng-c1885858377] {
+  background-color: var(--danger-normal);
+}
+.info[_ngcontent-ng-c1885858377] {
+  background-color: var(--information-normal);
+}
+.success[_ngcontent-ng-c1885858377] {
+  background-color: var(--success-normal);
+}
+.warning[_ngcontent-ng-c1885858377] {
+  background-color: var(--warning-normal);
+}
+.alert-message-container[_ngcontent-ng-c1885858377] {
+  padding: 10px;
+  color: var(--text-caption);
+}
+.alert-title[_ngcontent-ng-c1885858377] {
+  font-family: "Noto Sans", sans-serif;
+  font-weight: bold;
+  color: var(--text-caption);
+}
+.alert-description[_ngcontent-ng-c1885858377] {
+  font-family: "Noto Sans", sans-serif;
+  display: block;
+  color: var(--text-caption);
+}
+/*# sourceMappingURL=alerts.component.css.map */</style><style ng-style-reused="">
+
+.books[_ngcontent-ng-c3994916359] {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  flex-wrap: wrap;
+  padding: 15px;
+  width: fit-content;
+  max-width: 80vw;
+}
+.book[_ngcontent-ng-c3994916359] {
+  position: relative;
+  padding: 20px;
+  background-color: var(--background-two);
+  border-radius: 5px;
+  transition: 0.3s ease-in-out all;
+  cursor: pointer;
+}
+.book[_ngcontent-ng-c3994916359]:hover {
+  background-color: #c48484;
+}
+.plus-icon[_ngcontent-ng-c3994916359] {
+  position: absolute;
+  right: -25px;
+  top: 2px;
+  width: 30px;
+  cursor: pointer;
+  transition: 0.3s ease-in-out all;
+}
+.plus-icon[_ngcontent-ng-c3994916359]:hover {
+  transform: rotate(180deg);
+}
+.trash-icon[_ngcontent-ng-c3994916359] {
+  position: absolute;
+  right: 1px;
+  top: 1px;
+  width: 20px;
+  cursor: pointer;
+  transition: 0.3s ease-in-out all;
+}
+.trash-icon[_ngcontent-ng-c3994916359]:hover {
+  transform: rotate(360deg);
+}
+/*# sourceMappingURL=books.component.css.map */</style><style>
+
+.chapters[_ngcontent-ng-c3684151037] {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  padding: 15px;
+}
+.chapter[_ngcontent-ng-c3684151037] {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 20px;
+  background-color: var(--background-one);
+  color: var(--light-text);
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 18px;
+  font-weight: bold;
+  transition: 0.3s ease-in-out all;
+}
+.chapter[_ngcontent-ng-c3684151037]:hover {
+  background-color: var(--secondary-subtle);
+}
+.plus-icon[_ngcontent-ng-c3684151037] {
+  position: absolute;
+  right: -25px;
+  top: 2px;
+  width: 30px;
+  cursor: pointer;
+  transition: 0.3s ease-in-out all;
+}
+.plus-icon[_ngcontent-ng-c3684151037]:hover {
+  transform: rotate(180deg);
+}
+/*# sourceMappingURL=chapters.component.css.map */</style><style>
+
+.verses[_ngcontent-ng-c3838686294] {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 10px;
+}
+.verse[_ngcontent-ng-c3838686294] {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 5px;
+  color: var(--dark-text);
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: bold;
+  transition: 0.3s ease-in-out all;
+  line-height: 19px;
+}
+.verse[_ngcontent-ng-c3838686294]:hover {
+  background-color: var(--tertiary-subtle);
+}
+.plus-icon[_ngcontent-ng-c3838686294] {
+  position: absolute;
+  right: -25px;
+  top: 2px;
+  width: 30px;
+  cursor: pointer;
+  transition: 0.3s ease-in-out all;
+}
+.plus-icon[_ngcontent-ng-c3838686294]:hover {
+  transform: rotate(180deg);
+}
+/*# sourceMappingURL=verses.component.css.map */</style><style>
+
+.verses-on-versions[_ngcontent-ng-c3979772089] {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 8px;
+}
+.verse-on-version[_ngcontent-ng-c3979772089] {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 5px;
+  background-color: var(--dark);
+  color: var(--light-text);
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 14px;
+  font-weight: normal;
+  transition: 0.3s ease-in-out all;
+  line-height: 19px;
+}
+.plus-icon[_ngcontent-ng-c3979772089] {
+  position: absolute;
+  right: -25px;
+  top: 2px;
+  width: 30px;
+  cursor: pointer;
+  transition: 0.3s ease-in-out all;
+}
+.plus-icon[_ngcontent-ng-c3979772089]:hover {
+  transform: rotate(180deg);
+}
+/*# sourceMappingURL=verses-on-versions.component.css.map */</style><style>
+
+.propositions-on-verse[_ngcontent-ng-c2748615773] {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 8px;
+}
+.proposition-on-verse[_ngcontent-ng-c2748615773] {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 5px;
+  background-color: var(--dark);
+  color: var(--light-text);
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 14px;
+  font-weight: normal;
+  transition: 0.3s ease-in-out all;
+  line-height: 19px;
+}
+.proposition-on-verse[_ngcontent-ng-c2748615773]:hover {
+  background-color: var(--dark-hover);
+}
+.plus-icon[_ngcontent-ng-c2748615773] {
+  position: absolute;
+  right: -25px;
+  top: 2px;
+  width: 30px;
+  cursor: pointer;
+  transition: 0.3s ease-in-out all;
+}
+.plus-icon[_ngcontent-ng-c2748615773]:hover {
+  transform: rotate(180deg);
+}
+/*# sourceMappingURL=propositions-on-verses.component.css.map */</style><style>
+
+.originals-on-verse[_ngcontent-ng-c3986148801] {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 8px;
+}
+.original-on-verse[_ngcontent-ng-c3986148801] {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 5px;
+  background-color: var(--dark);
+  color: var(--light-text);
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 14px;
+  font-weight: normal;
+  transition: 0.3s ease-in-out all;
+  line-height: 19px;
+}
+.original-on-verse[_ngcontent-ng-c3986148801]:hover {
+  background-color: var(--dark-hover);
+}
+.original-description[_ngcontent-ng-c3986148801] {
+  font-size: 12px;
+}
+.property[_ngcontent-ng-c3986148801] {
+  font-weight: bold;
+}
+.apparatus[_ngcontent-ng-c3986148801] {
+  color: aquamarine;
+  font-style: italic;
+  font-size: 12px;
+}
+/*# sourceMappingURL=originals-on-verses.component.css.map */</style><style>
+
+.roots[_ngcontent-ng-c1281130760] {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 5px;
+}
+.root[_ngcontent-ng-c1281130760] {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 5px;
+  background-color: var(--light);
+  color: var(--dark-text);
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 14px;
+  font-weight: normal;
+  transition: 0.3s ease-in-out all;
+  line-height: 19px;
+}
+.root[_ngcontent-ng-c1281130760]:hover {
+  background-color: var(--light-hover);
+}
+/*# sourceMappingURL=roots.component.css.map */</style><style>
+
+.root-on-etymological-groups[_ngcontent-ng-c946810922] {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 3px;
+}
+.root-on-etymological-group[_ngcontent-ng-c946810922] {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 3px;
+  background-color: var(--dark);
+  color: var(--light-text);
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 14px;
+  font-weight: normal;
+  transition: 0.3s ease-in-out all;
+  line-height: 19px;
+}
+.root-on-etymological-group[_ngcontent-ng-c946810922]:hover {
+  background-color: var(--dark-hover);
+}
+/*# sourceMappingURL=roots-on-etymological-groups.component.css.map */</style><style>
+
+.themes-on-propositions[_ngcontent-ng-c3739129342] {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 5px;
+}
+.theme-on-proposition[_ngcontent-ng-c3739129342] {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 5px;
+  background-color: var(--light);
+  color: var(--dark-text);
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 12px;
+  font-weight: normal;
+  transition: 0.3s ease-in-out all;
+  line-height: 19px;
+}
+.plus-icon[_ngcontent-ng-c3739129342] {
+  position: absolute;
+  right: -25px;
+  top: 2px;
+  width: 30px;
+  cursor: pointer;
+  transition: 0.3s ease-in-out all;
+}
+/*# sourceMappingURL=themes-on-propositions.component.css.map */</style></head>
+<body><!--nghm-->
+  <app-root _nghost-ng-c582792440="" ng-version="17.3.12" ng-server-context="ssr"><app-base _ngcontent-ng-c582792440="" _nghost-ng-c1500617038=""><header _ngcontent-ng-c1500617038=""><nav _ngcontent-ng-c1500617038="" class="menu"><ul _ngcontent-ng-c1500617038="" class="menu-buttons"><li _ngcontent-ng-c1500617038=""><div _ngcontent-ng-c1500617038="" class="menu-button"><a _ngcontent-ng-c1500617038="" class="menu-text" ng-reflect-router-link="/livros" href="#/livros">Livros</a></div></li><li _ngcontent-ng-c1500617038=""><div _ngcontent-ng-c1500617038="" class="menu-button"><a _ngcontent-ng-c1500617038="" class="menu-text" ng-reflect-router-link="/versoes" href="#/versoes">Versões</a></div></li><li _ngcontent-ng-c1500617038=""><div _ngcontent-ng-c1500617038="" class="menu-button"><a _ngcontent-ng-c1500617038="" class="menu-text" ng-reflect-router-link="/themes" href="#/themes">Temas</a></div></li><!--bindings={
+  "ng-reflect-ng-for-of": "[object Object],[object Object"
+}--></ul></nav></header><router-outlet _ngcontent-ng-c582792440=""></router-outlet><app-books _nghost-ng-c3994916359=""><div _ngcontent-ng-c3994916359="" class="books"><div _ngcontent-ng-c3994916359="" class="book"><img _ngcontent-ng-c3994916359="" src="assets/icons/trashIcon.svg" alt="Deletar" class="trash-icon"><p _ngcontent-ng-c3994916359="">Gênesis</p><app-chapters _ngcontent-ng-c3994916359="" _nghost-ng-c3684151037="" ng-reflect-chapters="[object Object],[object Object" ng-reflect-book-id="1"><div _ngcontent-ng-c3684151037="" class="chapters"><div _ngcontent-ng-c3684151037="" class="chapter"><p _ngcontent-ng-c3684151037="" class="chapter-number"> 1: A criação do mundo em 7 dias </p><app-verses _ngcontent-ng-c3684151037="" _nghost-ng-c3838686294="" ng-reflect-verses="[object Object],[object Object" ng-reflect-chapter-id="1"><div _ngcontent-ng-c3838686294="" class="verses"><div _ngcontent-ng-c3838686294="" class="verse"><p _ngcontent-ng-c3838686294="" class="verse-number"> 1: No princípio criou Deus os céus e a terra. </p><app-verses-on-versions _ngcontent-ng-c3838686294="" _nghost-ng-c3979772089="" ng-reflect-verses-on-versions="[object Object],[object Object" ng-reflect-verse-id="1"><div _ngcontent-ng-c3979772089="" class="verses-on-versions"><h1 _ngcontent-ng-c3979772089="">Texto em outras versões</h1><div _ngcontent-ng-c3979772089="" class="verse-on-version"><p _ngcontent-ng-c3979772089="" class="verse-on-version-text" ng-reflect-ng-style="[object Object]" style="color: rgb(255, 85, 0);"> No princípio Deus criou os céus e a terra. (NVI) </p></div><div _ngcontent-ng-c3979772089="" class="verse-on-version"><p _ngcontent-ng-c3979772089="" class="verse-on-version-text" ng-reflect-ng-style="[object Object]" style="color: rgb(255, 0, 85);"> No princípio, criou Deus os céus e a terra. (AAE) </p></div><div _ngcontent-ng-c3979772089="" class="verse-on-version"><p _ngcontent-ng-c3979772089="" class="verse-on-version-text" ng-reflect-ng-style="[object Object]" style="color: rgb(255, 0, 85);"> No princípio, Deus criou os céus e a terra. (AM) </p></div><!--bindings={
+  "ng-reflect-ng-for-of": "[object Object],[object Object"
+}--><img _ngcontent-ng-c3979772089="" src="assets/icons/plusIcon.svg" alt="Mais" class="plus-icon"></div><!--bindings={
+  "ng-reflect-ng-if": "false"
+}--></app-verses-on-versions><!--ng-container--><!--bindings={
+  "ng-reflect-ng-if": "[object Object],[object Object"
+}--><app-propositions-on-verses _ngcontent-ng-c3838686294="" _nghost-ng-c2748615773="" ng-reflect-propositions-on-verses="[object Object],[object Object" ng-reflect-verse-id="1"><div _ngcontent-ng-c2748615773="" class="propositions-on-verse"><h1 _ngcontent-ng-c2748615773="">Proposições</h1><div _ngcontent-ng-c2748615773="" class="proposition-on-verse"><p _ngcontent-ng-c2748615773="" class="proposition-text"> A terra foi criada. </p><app-themes-on-propositions _ngcontent-ng-c2748615773="" _nghost-ng-c3739129342="" ng-reflect-themes-on-propositions="[object Object],[object Object"><div _ngcontent-ng-c3739129342="" class="themes-on-propositions"><div _ngcontent-ng-c3739129342="" class="theme-on-proposition"><p _ngcontent-ng-c3739129342="">Criação</p></div><div _ngcontent-ng-c3739129342="" class="theme-on-proposition"><p _ngcontent-ng-c3739129342="">Terra</p></div><!--bindings={
+  "ng-reflect-ng-for-of": "[object Object],[object Object"
+}--><img _ngcontent-ng-c3739129342="" src="assets/icons/plusIcon.svg" alt="Mais" class="plus-icon"></div><!--bindings={
+  "ng-reflect-ng-if": "false"
+}--></app-themes-on-propositions><!--ng-container--><!--bindings={
+  "ng-reflect-ng-if": "[object Object],[object Object"
+}--></div><div _ngcontent-ng-c2748615773="" class="proposition-on-verse"><p _ngcontent-ng-c2748615773="" class="proposition-text"> Deus estava no princípio. </p><!--bindings={
+  "ng-reflect-ng-if": "false"
+}--></div><div _ngcontent-ng-c2748615773="" class="proposition-on-verse"><p _ngcontent-ng-c2748615773="" class="proposition-text"> Houve um princípio. </p><!--bindings={
+  "ng-reflect-ng-if": "false"
+}--></div><!--bindings={
+  "ng-reflect-ng-for-of": "[object Object],[object Object"
+}--><img _ngcontent-ng-c2748615773="" src="assets/icons/plusIcon.svg" alt="Mais" class="plus-icon"></div><!--bindings={
+  "ng-reflect-ng-if": "false"
+}--></app-propositions-on-verses><!--ng-container--><!--bindings={
+  "ng-reflect-ng-if": "[object Object],[object Object"
+}--><app-originals-on-verses _ngcontent-ng-c3838686294="" _nghost-ng-c3986148801="" ng-reflect-originals-on-verse="[object Object],[object Object"><div _ngcontent-ng-c3986148801="" class="originals-on-verse"><h1 _ngcontent-ng-c3986148801="">Originais</h1><div _ngcontent-ng-c3986148801="" class="original-on-verse"><div _ngcontent-ng-c3986148801="" class="original"><p _ngcontent-ng-c3986148801="" class="original-Title"> Reshiyth </p><p _ngcontent-ng-c3986148801="" class="original-description"><span _ngcontent-ng-c3986148801="" class="property">Significado:</span><span _ngcontent-ng-c3986148801="" class="value"> Princípio; tempo antigo; começo de tudo; ponto de partida.</span></p><p _ngcontent-ng-c3986148801="" class="original-description"><span _ngcontent-ng-c3986148801="" class="property">Raiz:</span><app-roots _ngcontent-ng-c3986148801="" _nghost-ng-c1281130760="" ng-reflect-root="[object Object]"><div _ngcontent-ng-c1281130760="" class="roots"><div _ngcontent-ng-c1281130760="" class="root"><p _ngcontent-ng-c1281130760="" class="root-word"> RESHIYTH: Princípio; tempo antigo; começo de tudo; ponto de partida. </p><app-roots-on-etymological-groups _ngcontent-ng-c1281130760="" _nghost-ng-c946810922="" ng-reflect-root-on-etymological-groups="[object Object]"><div _ngcontent-ng-c946810922="" class="root-on-etymological-groups"><div _ngcontent-ng-c946810922="" class="root-on-etymological-group"><p _ngcontent-ng-c946810922=""> Cabeça, princípio, Líder: Relacionado a estar acima, ou ser o primeiro, ou estar à frente </p><p _ngcontent-ng-c946810922="">Raiz: R'SH</p></div><!--bindings={
+  "ng-reflect-ng-for-of": "[object Object]"
+}--></div></app-roots-on-etymological-groups><!--ng-container--><!--bindings={
+  "ng-reflect-ng-if": "[object Object]"
+}--></div></div></app-roots><span _ngcontent-ng-c3986148801="" class="value"> RESHIYTH - Princípio; tempo antigo; começo de tudo; ponto de partida.</span></p><p _ngcontent-ng-c3986148801="" class="apparatus"> Será que não pode significar: "A princípio", "para começo de conversa?" </p><!--bindings={
+  "ng-reflect-ng-if": "false"
+}--></div></div><div _ngcontent-ng-c3986148801="" class="original-on-verse"><div _ngcontent-ng-c3986148801="" class="original"><p _ngcontent-ng-c3986148801="" class="original-Title"> Elohim </p><p _ngcontent-ng-c3986148801="" class="original-description"><span _ngcontent-ng-c3986148801="" class="property">Significado:</span><span _ngcontent-ng-c3986148801="" class="value"> Deuses</span></p><p _ngcontent-ng-c3986148801="" class="original-description"><span _ngcontent-ng-c3986148801="" class="property">Raiz:</span><app-roots _ngcontent-ng-c3986148801="" _nghost-ng-c1281130760="" ng-reflect-root="[object Object]"><div _ngcontent-ng-c1281130760="" class="roots"><div _ngcontent-ng-c1281130760="" class="root"><p _ngcontent-ng-c1281130760="" class="root-word"> `ELOHIM: Deuses </p><app-roots-on-etymological-groups _ngcontent-ng-c1281130760="" _nghost-ng-c946810922="" ng-reflect-root-on-etymological-groups="[object Object]"><div _ngcontent-ng-c946810922="" class="root-on-etymological-groups"><div _ngcontent-ng-c946810922="" class="root-on-etymological-group"><p _ngcontent-ng-c946810922=""> Deus: Relacionado à figura ou ao tipo de ser: deus. </p><p _ngcontent-ng-c946810922="">Raiz: `L</p></div><!--bindings={
+  "ng-reflect-ng-for-of": "[object Object]"
+}--></div></app-roots-on-etymological-groups><!--ng-container--><!--bindings={
+  "ng-reflect-ng-if": "[object Object]"
+}--></div></div></app-roots><span _ngcontent-ng-c3986148801="" class="value"> `ELOHIM - Deuses</span></p><p _ngcontent-ng-c3986148801="" class="apparatus"> E se o correto for traduzir essa palavra como um coletivo (divindade, talvez). </p><!--bindings={
+  "ng-reflect-ng-if": "false"
+}--></div></div><div _ngcontent-ng-c3986148801="" class="original-on-verse"><div _ngcontent-ng-c3986148801="" class="original"><p _ngcontent-ng-c3986148801="" class="original-Title"> Bara' </p><p _ngcontent-ng-c3986148801="" class="original-description"><span _ngcontent-ng-c3986148801="" class="property">Significado:</span><span _ngcontent-ng-c3986148801="" class="value"> Criar, aplicado somente a Deus.</span></p><p _ngcontent-ng-c3986148801="" class="original-description"><span _ngcontent-ng-c3986148801="" class="property">Raiz:</span><app-roots _ngcontent-ng-c3986148801="" _nghost-ng-c1281130760="" ng-reflect-root="[object Object]"><div _ngcontent-ng-c1281130760="" class="roots"><div _ngcontent-ng-c1281130760="" class="root"><p _ngcontent-ng-c1281130760="" class="root-word"> BARA': Criar, aplicado somente a Deus. </p><app-roots-on-etymological-groups _ngcontent-ng-c1281130760="" _nghost-ng-c946810922="" ng-reflect-root-on-etymological-groups="[object Object]"><div _ngcontent-ng-c946810922="" class="root-on-etymological-groups"><div _ngcontent-ng-c946810922="" class="root-on-etymological-group"><p _ngcontent-ng-c946810922=""> Criar: Relacionado à criação divina </p><p _ngcontent-ng-c946810922="">Raiz: BR'</p></div><!--bindings={
+  "ng-reflect-ng-for-of": "[object Object]"
+}--></div></app-roots-on-etymological-groups><!--ng-container--><!--bindings={
+  "ng-reflect-ng-if": "[object Object]"
+}--></div></div></app-roots><span _ngcontent-ng-c3986148801="" class="value"> BARA' - Criar, aplicado somente a Deus.</span></p><p _ngcontent-ng-c3986148801="" class="apparatus"> Dizem que essa palavra é usada apenas para Deus, mas não é verdade. </p><!--bindings={
+  "ng-reflect-ng-if": "false"
+}--></div></div><!--bindings={
+  "ng-reflect-ng-for-of": "[object Object],[object Object"
+}--></div></app-originals-on-verses><!--ng-container--><!--bindings={
+  "ng-reflect-ng-if": "[object Object],[object Object"
+}--><!--ng-container--><!--bindings={
+  "ng-reflect-ng-if": "true"
+}--></div><div _ngcontent-ng-c3838686294="" class="verse"><p _ngcontent-ng-c3838686294="" class="verse-number"> 2: A terra, porém, estava sem forma e deserta; havia trevas sobre a face do abismo, e o ruach de Deus pairava sobre as águas. </p><!--bindings={
+  "ng-reflect-ng-if": "false"
+}--></div><div _ngcontent-ng-c3838686294="" class="verse"><p _ngcontent-ng-c3838686294="" class="verse-number"> 3: E disse Deus: Haja luz; e houve luz. </p><!--bindings={
+  "ng-reflect-ng-if": "false"
+}--></div><!--bindings={
+  "ng-reflect-ng-for-of": "[object Object],[object Object"
+}--><img _ngcontent-ng-c3838686294="" src="assets/icons/plusIcon.svg" alt="Mais" class="plus-icon"></div><!--bindings={
+  "ng-reflect-ng-if": "false"
+}--></app-verses><!--ng-container--><!--bindings={
+  "ng-reflect-ng-if": "[object Object],[object Object"
+}--><!--ng-container--><!--bindings={
+  "ng-reflect-ng-if": "true"
+}--></div><div _ngcontent-ng-c3684151037="" class="chapter"><p _ngcontent-ng-c3684151037="" class="chapter-number"> 2: A criação do homem e da mulher </p><!--bindings={
+  "ng-reflect-ng-if": "false"
+}--></div><div _ngcontent-ng-c3684151037="" class="chapter"><p _ngcontent-ng-c3684151037="" class="chapter-number"> 3: A queda do homem </p><!--bindings={
+  "ng-reflect-ng-if": "false"
+}--></div><!--bindings={
+  "ng-reflect-ng-for-of": "[object Object],[object Object"
+}--><img _ngcontent-ng-c3684151037="" src="assets/icons/plusIcon.svg" alt="Mais" class="plus-icon"></div><!--bindings={
+  "ng-reflect-ng-if": "false"
+}--></app-chapters><!--ng-container--><!--bindings={
+  "ng-reflect-ng-if": "[object Object],[object Object"
+}--><!--ng-container--><!--bindings={
+  "ng-reflect-ng-if": "true"
+}--></div><div _ngcontent-ng-c3994916359="" class="book"><img _ngcontent-ng-c3994916359="" src="assets/icons/trashIcon.svg" alt="Deletar" class="trash-icon"><p _ngcontent-ng-c3994916359="">Livro do Eclesiastes</p><!--bindings={
+  "ng-reflect-ng-if": "false"
+}--></div><div _ngcontent-ng-c3994916359="" class="book"><img _ngcontent-ng-c3994916359="" src="assets/icons/trashIcon.svg" alt="Deletar" class="trash-icon"><p _ngcontent-ng-c3994916359="">Apocalipse de João</p><!--bindings={
+  "ng-reflect-ng-if": "false"
+}--></div><!--bindings={
+  "ng-reflect-ng-for-of": "[object Object],[object Object"
+}--><img _ngcontent-ng-c3994916359="" src="assets/icons/plusIcon.svg" alt="Mais" class="plus-icon"></div><!--bindings={
+  "ng-reflect-ng-if": "false"
+}--></app-books><!--container--><app-alerts _ngcontent-ng-c582792440="" _nghost-ng-c1885858377=""><!--bindings={
+  "ng-reflect-ng-if": "false"
+}--></app-alerts><footer _ngcontent-ng-c1500617038="">Aqui vai o footer</footer></app-base></app-root>
+<script src="polyfills.js" type="module"></script><script src="main.js" type="module"></script>
+
+<script id="ng-state" type="application/json">{"2261423420":{"b":[{"bookAbbr":"Gn","bookCompleteName":"Gênesis","bookReducedName":"Gênesis","testament":"Antigo","bookPosition":1,"bookId":1},{"bookAbbr":"Ec","bookCompleteName":"Livro do Eclesiastes","bookReducedName":"Eclesiastes","testament":"Antigo","bookPosition":21,"bookId":3},{"bookAbbr":"Ap","bookCompleteName":"Apocalipse de João","bookReducedName":"Apocalipse","testament":"Antigo","bookPosition":66,"bookId":2}],"h":{},"s":200,"st":"OK","u":"http://localhost:3000/books/0/10/book_position/asc","rt":"json"},"__nghData__":[{"t":{"3":"t0"},"c":{"3":[{"i":"t0","r":1,"x":3}]},"n":{"5":"hfn5"}},{"t":{"1":"t1","3":"t2"},"c":{"1":[{"i":"t1","r":1,"t":{"4":"t4"},"c":{"4":[]},"x":3}],"3":[]}},{"t":{"0":"t3"},"c":{"0":[]}},{"n":{"1":"0fn"},"c":{"1":[{"i":"c3994916359","r":1}]}}]}</script></body></html>

@@ -19,4 +19,8 @@ export class ThemesService {
     const Theme = await this.themesRepo.getThemeById(themeId)
     return Theme
   }
+
+  async deleteTheme(themeId: number) {
+    await this.themesRepo.deleteThmeById(themeId)
+  }
 }
